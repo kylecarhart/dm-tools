@@ -1,0 +1,7 @@
+/* Uncomment for css debugging */
+@import url("debug.css");
+
+/* Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
