@@ -5,6 +5,7 @@ import {
   updateInitiative,
 } from "../../features/initiative/initiativeSlice";
 import { Initiative } from "../../types";
+import Button from "../button/Button";
 
 interface Props {
   index: number;
@@ -18,7 +19,7 @@ export default function InitiativeRow({ initiative, index }: Props) {
   console.log({ index, currInitiative });
 
   return (
-    <tr className={currInitiative === index ? "bg-slate-300" : ""}>
+    <tr className={currInitiative === index ? "bg-gray-100" : ""}>
       <td>
         <InitiativeInput
           text={playerName}
@@ -80,9 +81,9 @@ export default function InitiativeRow({ initiative, index }: Props) {
         />
       </td>
       <td>
-        <button onClick={() => dispatch(removeInitiative(index))}>
+        <Button onClick={() => dispatch(removeInitiative(index))}>
           Delete
-        </button>
+        </Button>
       </td>
     </tr>
   );
@@ -93,12 +94,13 @@ interface InitiativeInputProps
   text: string;
   onChange: (value: string) => any;
 }
-function InitiativeInput({ text, onChange }: InitiativeInputProps) {
+function InitiativeInput({ text, onChange, ...props }: InitiativeInputProps) {
   return (
     <input
       className="px-4 py-2 bg-transparent"
       value={text}
       onChange={(e) => onChange(e.target.value)}
+      {...props}
     />
   );
 }

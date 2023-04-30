@@ -1,12 +1,11 @@
-import { useState } from "react";
-import "./App.css";
 import { useAppDispatch, useAppSelector } from "./app/hooks";
+import Button from "./components/button/Button";
 import InitiativeRow from "./components/table/InitiativeRow";
 import {
   addInitiative,
-  resetAll,
   decInitiative,
   incInitiative,
+  resetAll,
 } from "./features/initiative/initiativeSlice";
 
 function App() {
@@ -18,19 +17,20 @@ function App() {
   return (
     <>
       <div>
-        <button onClick={() => dispatch(addInitiative())}>Add Player</button>
-        <button onClick={() => dispatch(resetAll())}>Clear</button>
-        <button onClick={() => dispatch(incInitiative())}>Inc Int</button>
-        <button onClick={() => dispatch(decInitiative())}>Dec Int</button>
+        <Button onClick={() => dispatch(addInitiative())}>Add Player</Button>
+        <Button onClick={() => dispatch(resetAll())}>Clear</Button>
+        <Button onClick={() => dispatch(incInitiative())}>Inc Int</Button>
+        <Button onClick={() => dispatch(decInitiative())}>Dec Int</Button>
         <div>{currInitiative}</div>
         <div>{currRound}</div>
-        <table className="border-collapse">
+        <table className="table-fixed border-collapse border border-slate-400 rounded shadow-md">
           <thead>
             <tr>
               <th>Player Name</th>
               <th>Character Name</th>
               <th>HP</th>
               <th>Max HP</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody className="">
