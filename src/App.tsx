@@ -21,8 +21,8 @@ function App() {
         <Button onClick={() => dispatch(resetAll())}>Clear</Button>
         <Button onClick={() => dispatch(incInitiative())}>Inc Int</Button>
         <Button onClick={() => dispatch(decInitiative())}>Dec Int</Button>
-        <div>{currInitiative}</div>
-        <div>{currRound}</div>
+        <div>Who's up: {currInitiative}</div>
+        <div>Round: {currRound}</div>
         <table className="table-fixed border-collapse border border-slate-400 rounded shadow-md">
           <thead>
             <tr>
